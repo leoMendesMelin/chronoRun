@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  influxdb:
+    image: influxdb:latest  # Ceci utilisera la dernière version 2.x
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=leo
+      - DOCKER_INFLUXDB_INIT_PASSWORD=leo2002moe45
+      - DOCKER_INFLUXDB_INIT_ORG=polytech
+      - DOCKER_INFLUXDB_INIT_BUCKET=polytech-bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=token  # Vous pouvez générer un nouveau token
+    networks:
+      - nodered_network
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    networks:
+      - nodered_network
+    restart: unless-stopped
+    depends_on:
+      - influxdb
+
+  node-red:
+    image: nodered/node-red:latest
+    container_name: node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./.node-red:/data
+    environment:
+      - NODE_RED_ENABLE_PROJECTS=false
+      - TZ=Europe/Paris
+      - NODE_RED_ENABLE_PROJECTS=false
+      - TZ=Europe/Paris
+      - INFLUXDB_HOST=influxdb
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_DATABASE=polytech-bucket
+      - INFLUXDB_USER=leo
+      - INFLUXDB_PASSWORD=leo2002moe45
+    networks:
+      - nodered_network
+    restart: unless-stopped
+
+networks:
+  nodered_network:
+    driver: bridge
+
+volumes:
+  influxdb_data:
+  grafana_data:

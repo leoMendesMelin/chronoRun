@@ -1,0 +1,610 @@
+[
+    {
+        "id": "22a3d95077a8e3a0",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "02d9ef2274d0db2f",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "popo-db",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "a1bc511188fa8d8d",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "c8a08a0d589e5834",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "c8a08a0d589e5834",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "983f7074e834ea48",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "49c9b69d3db7d0a6",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "532c08e4ecde3729",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "",
+        "url": "/app/light/:timestamp/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "12dd2a58b69249dd"
+            ]
+        ]
+    },
+    {
+        "id": "068576970c5da6d4",
+        "type": "influxdb out",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "",
+        "measurement": "LightSensorv2",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "polytech-bucket",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech-orga",
+        "bucket": "polytech-bucket",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "12dd2a58b69249dd",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 1",
+        "func": "msg.payload = Number(msg.req.params.value);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "068576970c5da6d4",
+                "49c9b69d3db7d0a6"
+            ]
+        ]
+    },
+    {
+        "id": "6559ee78e53360da",
+        "type": "inject",
+        "z": "22a3d95077a8e3a0",
+        "name": "Horodatage",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "a4e25e8796060d6a"
+            ]
+        ]
+    },
+    {
+        "id": "a4e25e8796060d6a",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 2",
+        "func": "msg.query = 'from(bucket: \"polytech-bucket\")\\\n    |> range(start: 2023-01-01)\\\n    |> filter(fn: (r) => r._measurement==\"LightSensorv2\")';\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 700,
+        "wires": [
+            [
+                "732790d3286f452c"
+            ]
+        ]
+    },
+    {
+        "id": "732790d3286f452c",
+        "type": "influxdb in",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "on fou les données",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "polytech-orga",
+        "x": 870,
+        "y": 700,
+        "wires": [
+            [
+                "104c1feb6271ae6f"
+            ]
+        ]
+    },
+    {
+        "id": "104c1feb6271ae6f",
+        "type": "split",
+        "z": "22a3d95077a8e3a0",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 1070,
+        "y": 700,
+        "wires": [
+            [
+                "a865783901b860a6"
+            ]
+        ]
+    },
+    {
+        "id": "3085f795a5aae4e0",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "18a0a5c18b70a7f3",
+        "type": "ui_chart",
+        "z": "22a3d95077a8e3a0",
+        "name": "",
+        "group": "a1bc511188fa8d8d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1370,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a34f31346692e8b9",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "",
+        "url": "/app/light/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "f79584f3951d150c"
+            ]
+        ]
+    },
+    {
+        "id": "f79584f3951d150c",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cfb7556812ca64a6",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a865783901b860a6",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 3",
+        "func": "msg.timestamp = msg.payload._time;\nmsg.payload = Number(msg.payload._value);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 700,
+        "wires": [
+            [
+                "3085f795a5aae4e0",
+                "18a0a5c18b70a7f3",
+                "cfb7556812ca64a6"
+            ]
+        ]
+    },
+    {
+        "id": "eee1a36e0751254b",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "accelerometre",
+        "url": "/app/accelerometer/:timestamp/:axe/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 100,
+        "wires": [
+            [
+                "68f119fe337443a1",
+                "18ab2af5296a4d36"
+            ]
+        ]
+    },
+    {
+        "id": "68f119fe337443a1",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 6",
+        "func": "msg.payload = {\n    axe: msg.req.params.axe,\n    value: Number(msg.req.params.value),\n    time: Number(msg.req.params.timestamp)\n};\n\nmsg.measurement = msg.payload.axe;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 80,
+        "wires": [
+            [
+                "3b9eafc93cec5187",
+                "9f4c432daf152d94"
+            ]
+        ]
+    },
+    {
+        "id": "3b9eafc93cec5187",
+        "type": "influxdb out",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech-orga",
+        "bucket": "polytech-bucket",
+        "x": 660,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9f4c432daf152d94",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 7",
+        "func": "msg.payload = msg.payload.axe + \";\" + msg.payload.time;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "d6809031b49ceb17"
+            ]
+        ]
+    },
+    {
+        "id": "d6809031b49ceb17",
+        "type": "http response",
+        "z": "22a3d95077a8e3a0",
+        "name": "HttpResponse",
+        "statusCode": "200",
+        "headers": {},
+        "x": 900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "18ab2af5296a4d36",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4d89bcbddc1cf675",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "position",
+        "url": "/app/pos/:timestamp/:coo/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "2c8c56c5a88a2863",
+                "1c8f82950ec739d1"
+            ]
+        ]
+    },
+    {
+        "id": "2c8c56c5a88a2863",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 8",
+        "func": "let lat = null;\nlet long = null;\n\nif (msg.req.params.coo === \"lat\") {\n    lat = Number(msg.req.params.value);  // Si `coo` est \"lat\", extraire la latitude\n    msg.payload = {\n        axe: \"lat\",                      // Indique que l'axe est la latitude\n        value: lat,                      // La valeur de latitude\n        time: Number(msg.req.params.timestamp) // Timestamp\n    };\n} else if (msg.req.params.coo === \"long\") {\n    long = Number(msg.req.params.value);  // Si `coo` est \"long\", extraire la longitude\n    msg.payload = {\n        axe: \"long\",                     // Indique que l'axe est la longitude\n        value: long,                     // La valeur de longitude\n        time: Number(msg.req.params.timestamp) // Timestamp\n    };\n}\n\nmsg.measurement = msg.payload.axe;\n\n\nif (msg.payload.value === null || isNaN(msg.payload.value)) {\n    console.warn(\"Aucune valeur valide fournie pour l'axe spécifié!\");\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 440,
+        "wires": [
+            [
+                "19e738501addf8e5"
+            ]
+        ]
+    },
+    {
+        "id": "19e738501addf8e5",
+        "type": "influxdb out",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "polytech-bucket",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech-orga",
+        "bucket": "polytech-bucket",
+        "x": 740,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1c8f82950ec739d1",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 540,
+        "wires": []
+    }
+]

@@ -1,0 +1,946 @@
+[
+    {
+        "id": "22a3d95077a8e3a0",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "515f1992ef93b423",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "02d9ef2274d0db2f",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "popo-db",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://influxdb:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "983bd89c9d2c3796",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "faa9704bb18fe334",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "cf1d9cec096cee0e",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "2957633cb17d6191",
+        "type": "ui_group",
+        "name": "Group 3",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "eaa085c0dfb45421",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5605f96b81df49dd",
+        "type": "ui_group",
+        "name": "Group 5",
+        "tab": "",
+        "order": 5,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "87f492a7e2911f53",
+        "type": "ui_group",
+        "name": "Group 6",
+        "tab": "",
+        "order": 6,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "c63d35219f79f00d",
+        "type": "ui_group",
+        "name": "Group 7",
+        "tab": "",
+        "order": 7,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "275cb0165f35bd43",
+        "type": "ui_group",
+        "name": "Group 8",
+        "tab": "",
+        "order": 8,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "e21c96132b134551",
+        "type": "ui_group",
+        "name": "Group 9",
+        "tab": "",
+        "order": 9,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "c8a08a0d589e5834",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "a1bc511188fa8d8d",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "c8a08a0d589e5834",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "c0df7572ef1cfca7",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "InfluxNode",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "c286dfa853a0c291",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "b233170015132a0f",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b233170015132a0f",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "49c9b69d3db7d0a6",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "532c08e4ecde3729",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "",
+        "url": "/app/light/:timestamp/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "12dd2a58b69249dd"
+            ]
+        ]
+    },
+    {
+        "id": "068576970c5da6d4",
+        "type": "influxdb out",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "",
+        "measurement": "LightSensorv2",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "polytech-bucket",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech",
+        "bucket": "polytech-bucket",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "12dd2a58b69249dd",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 1",
+        "func": "msg.payload = Number(msg.req.params.value);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "068576970c5da6d4",
+                "49c9b69d3db7d0a6"
+            ]
+        ]
+    },
+    {
+        "id": "a34f31346692e8b9",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "",
+        "url": "/app/light/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "f79584f3951d150c"
+            ]
+        ]
+    },
+    {
+        "id": "f79584f3951d150c",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "eee1a36e0751254b",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "accelerometre",
+        "url": "/app/accelerometer/:timestamp/:axe/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 100,
+        "wires": [
+            [
+                "68f119fe337443a1",
+                "18ab2af5296a4d36"
+            ]
+        ]
+    },
+    {
+        "id": "68f119fe337443a1",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 6",
+        "func": "msg.payload = {\n    axe: msg.req.params.axe,\n    value: Number(msg.req.params.value),\n    time: Number(msg.req.params.timestamp)\n};\n\nmsg.measurement = msg.payload.axe;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 80,
+        "wires": [
+            [
+                "3b9eafc93cec5187",
+                "9f4c432daf152d94"
+            ]
+        ]
+    },
+    {
+        "id": "3b9eafc93cec5187",
+        "type": "influxdb out",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech",
+        "bucket": "polytech-bucket",
+        "x": 660,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9f4c432daf152d94",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 7",
+        "func": "msg.payload = msg.payload.axe + \";\" + msg.payload.time;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "d6809031b49ceb17"
+            ]
+        ]
+    },
+    {
+        "id": "d6809031b49ceb17",
+        "type": "http response",
+        "z": "22a3d95077a8e3a0",
+        "name": "HttpResponse",
+        "statusCode": "404",
+        "headers": {},
+        "x": 900,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "18ab2af5296a4d36",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4d89bcbddc1cf675",
+        "type": "http in",
+        "z": "22a3d95077a8e3a0",
+        "name": "position",
+        "url": "/app/pos/:timestamp/:coo/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "2c8c56c5a88a2863"
+            ]
+        ]
+    },
+    {
+        "id": "2c8c56c5a88a2863",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "function 8",
+        "func": "msg.payload = {\n    coordinate: msg.req.params.coo,\n    value: Number(msg.req.params.value),\n    time: Number(msg.req.params.timestamp)\n};\n\nmsg.measurement = msg.payload.coordinate;\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 440,
+        "wires": [
+            [
+                "9c8298b5ca5c9311",
+                "1c8f82950ec739d1"
+            ]
+        ]
+    },
+    {
+        "id": "19e738501addf8e5",
+        "type": "influxdb out",
+        "z": "22a3d95077a8e3a0",
+        "influxdb": "02d9ef2274d0db2f",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "polytech-bucket",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech",
+        "bucket": "polytech-bucket",
+        "x": 860,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1c8f82950ec739d1",
+        "type": "debug",
+        "z": "22a3d95077a8e3a0",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9c8298b5ca5c9311",
+        "type": "function",
+        "z": "22a3d95077a8e3a0",
+        "name": "anti0",
+        "func": "if (msg.payload.value === 0) {\n    return null;  // Ne rien renvoyer, donc bloquer l'envoi\n} else {\n    return msg;  // Continuer à envoyer le message si la valeur n'est pas 0\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "19e738501addf8e5",
+                "a1e953c5b523fec4"
+            ]
+        ]
+    },
+    {
+        "id": "a1e953c5b523fec4",
+        "type": "http response",
+        "z": "22a3d95077a8e3a0",
+        "name": "HttpResponse",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1000,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "eed045dcfe2c452d",
+        "type": "http in",
+        "z": "515f1992ef93b423",
+        "name": "Luciemousine",
+        "url": "/app/accelerometer/:timestamp/:axe/:value",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "fcb0f1236acce372"
+            ]
+        ]
+    },
+    {
+        "id": "fcb0f1236acce372",
+        "type": "function",
+        "z": "515f1992ef93b423",
+        "name": "function 1",
+        "func": "msg.payload = {\n    axe: msg.req.params.axe,\n    value: Number(msg.req.params.value),\n    time: Number(msg.req.params.timestamp)\n};\n\nmsg.measurement = msg.payload.axe;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "aa2fdabd1f4c10c2",
+                "018fc601922000d9"
+            ]
+        ]
+    },
+    {
+        "id": "aa2fdabd1f4c10c2",
+        "type": "influxdb out",
+        "z": "515f1992ef93b423",
+        "influxdb": "c0df7572ef1cfca7",
+        "name": "DBModule",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "polytech",
+        "bucket": "julienbucket",
+        "x": 550,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "81b816f2572e0252",
+        "type": "ui_button",
+        "z": "515f1992ef93b423",
+        "name": "",
+        "group": "c286dfa853a0c291",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Afficher les données",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "af33ddc1287e489e"
+            ]
+        ]
+    },
+    {
+        "id": "72ac817203398675",
+        "type": "ui_text",
+        "z": "515f1992ef93b423",
+        "group": "c286dfa853a0c291",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Graphe des valeurs d'accélération",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 220,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c995857e27dc5231",
+        "type": "inject",
+        "z": "515f1992ef93b423",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cdf1e68af3bdec0",
+        "type": "function",
+        "z": "515f1992ef93b423",
+        "name": "function 2",
+        "func": "msg.query = 'from(bucket: \"julienbucket\")\\\n    |> range(start: 2023-01-01)\\\n    |> filter(fn: (r) => r._measurement==\"AccelerometerSensor\")';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 600,
+        "wires": [
+            [
+                "08a48c5b35984089"
+            ]
+        ]
+    },
+    {
+        "id": "08a48c5b35984089",
+        "type": "influxdb in",
+        "z": "515f1992ef93b423",
+        "influxdb": "c0df7572ef1cfca7",
+        "name": "",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "polytech",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "13cbc96cca2618a4"
+            ]
+        ]
+    },
+    {
+        "id": "8d3b09a480b940a4",
+        "type": "debug",
+        "z": "515f1992ef93b423",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "13cbc96cca2618a4",
+        "type": "split",
+        "z": "515f1992ef93b423",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "760893cc0ab898b3"
+            ]
+        ]
+    },
+    {
+        "id": "760893cc0ab898b3",
+        "type": "function",
+        "z": "515f1992ef93b423",
+        "name": "function 3",
+        "func": "msg.timestamp = msg.payload._time;\nmsg.payload = Number(msg.payload._value);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 600,
+        "wires": [
+            [
+                "8d3b09a480b940a4",
+                "3f63911631c869c1"
+            ]
+        ]
+    },
+    {
+        "id": "3f63911631c869c1",
+        "type": "ui_chart",
+        "z": "515f1992ef93b423",
+        "name": "",
+        "group": "c286dfa853a0c291",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Graphique d'évolution d'accélération",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af33ddc1287e489e",
+        "type": "function",
+        "z": "515f1992ef93b423",
+        "name": "function 4",
+        "func": "if(msg.Background == \"red\") {\n    msg.Background = \"blue\";\n} else {\n    msg.Background = \"red\";\n}\nconsole.log(\"test\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 460,
+        "wires": [
+            [
+                "3cdf1e68af3bdec0"
+            ]
+        ]
+    },
+    {
+        "id": "c4473b976c6598a0",
+        "type": "http response",
+        "z": "515f1992ef93b423",
+        "name": "HttpResponse",
+        "statusCode": "200",
+        "headers": {},
+        "x": 920,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "018fc601922000d9",
+        "type": "function",
+        "z": "515f1992ef93b423",
+        "name": "function 5",
+        "func": "msg.payload = msg.payload.axe + \";\" + msg.payload.time;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 280,
+        "wires": [
+            [
+                "c4473b976c6598a0",
+                "83d48f2c261ad37a"
+            ]
+        ]
+    },
+    {
+        "id": "83d48f2c261ad37a",
+        "type": "debug",
+        "z": "515f1992ef93b423",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0a859d1cd6749fb0",
+        "type": "debug",
+        "z": "515f1992ef93b423",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "766706fcbcfe564c",
+        "type": "comment",
+        "z": "515f1992ef93b423",
+        "name": "",
+        "info": "Le corps de la réponse HTTP correspond au\npayload du message qu'il reçoit (voir aide)",
+        "x": 1090,
+        "y": 280,
+        "wires": []
+    }
+]

@@ -1,0 +1,13 @@
+{
+    "name": "node-red-docker",
+    "version": "1.0.0",
+    "description": "Node-RED Docker configuration",
+    "scripts": {
+        "start": "node-red"
+    },
+    "dependencies": {
+        "node-red": "4.0.3",
+        "node-red-contrib-influxdb": "0.7.0",
+        "node-red-dashboard": "3.6.1"
+    }
+}

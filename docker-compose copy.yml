@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+    environment:
+      INFLUXDB_DB: polytech-bucket
+      INFLUXDB_ADMIN_USER: leo
+      INFLUXDB_ADMIN_PASSWORD: leo2002moe45
+      INFLUXDB_HTTP_AUTH_ENABLED: "true"
+      INFLUXDB_USER_TOKEN: SqDeorCNZS0QjFmmjhcEy3NotOElcokRl18Zzm_nUZk1D8kf4B2nm94YC1CU3N4G6--pHxFvZkC_VZw4QpkXjA==
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    restart: unless-stopped
+    depends_on:
+      - influxdb
+
+  node-red:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-red
+    user: "1000:1000"  # Ajout de l'utilisateur spécifique
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./flows.json:/data/flows.json:rw
+      - ./settings.js:/data/settings.js:ro
+      - node_red_userdir:/data
+    environment:
+      - NODE_RED_ENABLE_PROJECTS=false
+      - FLOWS=flows.json
+    restart: unless-stopped
+
+volumes:
+  influxdb_data:
+  grafana_data:
+  node_red_userdir:
